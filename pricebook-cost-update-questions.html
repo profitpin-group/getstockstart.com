@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .legal-wrap { max-width: 980px; }
+  .legal-intro { padding: 56px 0 8px; }
+  .legal-intro h1 { font-size: clamp(38px, 4.4vw, 56px); letter-spacing: -2px; margin-bottom: 12px; }
+  .legal-meta { font-size: 12px; letter-spacing: 1px; color: var(--muted); margin: 0 0 30px; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; padding-bottom: 80px; }
+  .legal-toc { position: sticky; top: 24px; font-size: 12px; }
+  .legal-toc strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 10px; }
+  .legal-toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .legal-toc a:hover { color: var(--ink); }
+  .legal-body h2 { font-size: 24px; letter-spacing: -.6px; margin: 40px 0 10px; }
+  .legal-body section:first-child h2 { margin-top: 0; }
+  .legal-body p, .legal-body li { max-width: 68ch; font-size: 15.5px; line-height: 1.7; }
+  .legal-body ul { padding-left: 22px; }
+  .plain { border-left: 3px solid #718341; background: #f2f5e8; padding: 12px 16px; margin: 0 0 18px; max-width: 68ch; font-size: 15px; border-radius: 0 6px 6px 0; }
+  .plain strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 4px; }
+  .legal-body code { font-family: Consolas, monospace; font-size: .92em; background: #eef0e7; padding: 1px 5px; border-radius: 3px; }
+  .legal-body table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .legal-body th, .legal-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body th { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+  .legal-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+  @media (max-width: 860px) { .legal-layout { grid-template-columns: 1fr; gap: 20px; } .legal-toc { position: static; } }
+</style>
+<title>Supplier Price Increases: Pricebook Cost FAQ | StockStart</title>
+<meta name="description" content="Supplier raised prices? Answers on updating pricebook material costs from invoices: box vs each errors, duplicates, imports and margins.">
+<link rel="canonical" href="https://getstockstart.com/pricebook-cost-update-questions.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="StockStart"><meta property="og:title" content="Supplier Price Increases: Pricebook Cost FAQ | StockStart"><meta property="og:description" content="Supplier raised prices? Answers on updating pricebook material costs from invoices: box vs each errors, duplicates, imports and margins."><meta property="og:url" content="https://getstockstart.com/pricebook-cost-update-questions.html"><meta name="twitter:card" content="summary">
+
+<style>
+  .g{max-width:860px;margin:0 auto;padding:40px 20px 80px;line-height:1.6}
+  .g h1{font-size:38px;line-height:1.1;margin:8px 0 14px}.g h2{font-size:24px;margin:40px 0 10px}.g h3{font-size:18px;margin:26px 0 6px}
+  .g p,.g li{max-width:720px}.g ul,.g ol{padding-left:22px}.g li{margin-bottom:7px}
+  .g .lede{font-size:18px;opacity:.85;max-width:720px}
+  .g .toc{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;margin:10px 0 0;letter-spacing:.02em}.g .toc a{text-decoration:none;opacity:.8}.g .toc a:hover{opacity:1;text-decoration:underline}
+  .g .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 6px}
+  .g .cards div{border:1px solid rgba(0,0,0,.15);border-radius:8px;padding:14px 16px;background:rgba(255,255,255,.55)}
+  .g .cards .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}.g .cards .v{margin-top:6px;font-size:15px}
+  .g table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0 6px;background:rgba(255,255,255,.55)}
+  .g th,.g td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,0,0,.15);vertical-align:top}.g th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;font-weight:600}
+  .g .check{list-style:none;padding:0;max-width:720px}.g .check li{display:grid;grid-template-columns:24px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,.18)}.g .check li::before{content:"";width:15px;height:15px;border:1.5px solid currentColor;border-radius:3px;margin-top:5px;opacity:.7}
+  .g .note{border-left:3px solid currentColor;padding:10px 14px;margin:14px 0;max-width:720px;background:rgba(0,0,0,.04);font-size:15px}
+  .g .caution{background:rgba(160,40,40,.07);border-left-color:#7a2626}
+  .g .cta{border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:24px 26px;margin-top:36px;background:rgba(255,255,255,.6)}
+  .g .cta h2{margin-top:0}.g .cta .btn{display:inline-block;padding:11px 20px;border-radius:6px;background:#173e32;color:#fff !important;text-decoration:none;font-weight:600;margin-top:8px}
+  @media print{header,footer,.g .cta,.g .toc{display:none}.g{padding:0}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I update material costs in my pricebook when my supplier raises prices?", "acceptedAnswer": {"@type": "Answer", "text": "Start from the newest supplier invoice, not from memory or an old price sheet: the invoice is what you actually paid. For each line, find the matching item in your pricebook by part number, check that the invoice unit matches the pricebook unit, and change the cost only on items where it really moved. In ServiceTitan most shops do this through the pricebook export and import rather than editing items one at a time. The weekly invoice routine walks through it step by step."}}, {"@type": "Question", "name": "How often should a contractor update pricebook material costs?", "acceptedAnswer": {"@type": "Answer", "text": "There is no single rule. Published guidance commonly suggests reviewing material pricing at least quarterly, and more often for copper, wire and other materials whose prices move quickly. A practical rhythm is to match the update to your deliveries: if invoices arrive every week, a weekly pass keeps each update small, while a month of invoices left to pile up becomes an afternoon of work."}}, {"@type": "Question", "name": "Why don't my pricebook costs match my supplier invoices?", "acceptedAnswer": {"@type": "Answer", "text": "Usually one of four things. The supplier changed the price and nobody updated the item; the invoice is priced per box, case or roll while the pricebook counts each, foot or pound; the same part exists twice in the pricebook and the wrong copy was updated; or the cost was changed in one place while a different vendor cost is the one being used. Check the unit first, because a pack-size mismatch looks exactly like a huge price change."}}, {"@type": "Question", "name": "Does ServiceTitan update material costs automatically from supplier invoices?", "acceptedAnswer": {"@type": "Answer", "text": "ServiceTitan offers supplier catalog integrations for some suppliers, and its help center describes cost sync and price-change options for those. If your supplier is not connected, or you buy from several supply houses, costs generally change only when someone updates them, by hand or through an import file. Check ServiceTitan's own documentation for what your account and suppliers support."}}, {"@type": "Question", "name": "What if my supply house isn't integrated with ServiceTitan?", "acceptedAnswer": {"@type": "Answer", "text": "Then the invoices are your price source. Shops typically export the pricebook, update costs in that workbook from the week's invoices, and import it back; ServiceTitan's help center also documents a vendor-material cost import for suppliers whose price changes arrive as a spreadsheet. StockStart is built for this case: it reads invoices from any supplier against your exported pricebook and prepares the changes for you to review and import yourself."}}, {"@type": "Question", "name": "Is there a spreadsheet or template for updating pricebook costs?", "acceptedAnswer": {"@type": "Answer", "text": "The best template is your own pricebook export. It already has the exact column names, item IDs, codes and categories ServiceTitan accepts back, so patching changes into it avoids the failed or silent imports a blank sheet causes. The import checklist lists what to check before the file goes in, and there is a printable weekly checklist PDF."}}, {"@type": "Question", "name": "Why is the cost per unit wrong after I updated the pricebook?", "acceptedAnswer": {"@type": "Answer", "text": "The most common cause is a pack price entered as the cost of one item: a box of 25 fittings at $84.50 typed into an item that is sold each. Every quote using that part is then off by a factor of 25 until someone notices. Converting the invoice price to the pricebook's unit before writing the cost prevents it."}}, {"@type": "Question", "name": "How do I convert a box, case or roll price to a cost per each?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the invoice price by the number of units in the pack, counted the same way the pricebook counts the item. A box of 100 elbows at $84.50 is $0.845 each; a 100 ft roll at $62.00 is $0.62 per foot if the pricebook item is per foot, but stays $62.00 if the item is the whole roll. The pack quantity is often printed in the description or the unit-of-measure column on the invoice, so read it rather than guessing."}}, {"@type": "Question", "name": "Is there a free calculator to check unit costs from a supplier invoice?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The free pricebook unit-cost checker takes invoice lines pasted from a spreadsheet, converts each pack price to a cost per unit, shows the change against your current pricebook cost, and flags likely box-versus-each errors. It runs in your browser, nothing is uploaded and there is no sign-up. It checks arithmetic on what you paste; a flag is a prompt to look, not a verdict."}}, {"@type": "Question", "name": "How do I tell a real price increase from a data entry mistake?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the size of the change with the pack quantity. If the new cost is roughly 10, 12, 25 or 100 times the old one, it is almost always a unit problem, not a price increase. A real supplier increase is usually a modest percentage and often shows across several items from the same supplier at once. When in doubt, check the line on the original invoice before changing the pricebook."}}, {"@type": "Question", "name": "What percentage price change should I flag for review?", "acceptedAnswer": {"@type": "Answer", "text": "Pick a threshold that fits your shop and your materials; there is no industry standard. A low threshold catches more but gives you more to look at, while a high one can let a real increase on an expensive item slip through. The free checker lets you set your own percent, and StockStart flags cost changes above the threshold you choose."}}, {"@type": "Question", "name": "How do I stop duplicate parts showing up in my pricebook?", "acceptedAnswer": {"@type": "Answer", "text": "Duplicates appear when a part is added as new because a search didn't find it under a different description, such as \"3/4 CU 90\" and \"Copper elbow 3/4\". Match every invoice line against the pricebook by part number and unit before adding anything, treat a description-only match as a suggestion for a person to confirm, and check the batch against itself so an invoice received by email and through a portal isn't entered twice. More on this in matching supplier invoice lines to pricebook items."}}, {"@type": "Question", "name": "How do I match supplier part numbers to my pricebook items?", "acceptedAnswer": {"@type": "Answer", "text": "Search the vendor part number first, then the manufacturer part number, then a normalized description. A part number match with a matching unit is a safe link; anything weaker should wait for a person. Keeping vendor and manufacturer part numbers in their own fields, exactly as printed, makes every later match easier."}}, {"@type": "Question", "name": "Why did my pricebook import fail, or change nothing?", "acceptedAnswer": {"@type": "Answer", "text": "Common causes are a file built from a blank sheet instead of the export, renamed or reordered column headers, missing item IDs so updates create new items instead of changing existing ones, and items pointing at a category that doesn't exist. ServiceTitan's help center also has an article on costs that don't populate after an import, since vendor costs can be stored per vendor. Import a small batch first and open a few items to check unit, cost, category and active flag."}}, {"@type": "Question", "name": "Can I turn supplier invoice PDFs or photos into a pricebook update?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but read the values before trusting them: a creased photo or an unusual invoice layout can be misread by any OCR. StockStart reads PDFs, photos, emailed receipts and spreadsheets, keeps the source image next to each line, and holds uncertain values in a review queue instead of guessing; it does not claim 100% OCR accuracy. The guide to supplier invoice PDFs to pricebook updates covers the process."}}, {"@type": "Question", "name": "How do I bulk update material prices in ServiceTitan?", "acceptedAnswer": {"@type": "Answer", "text": "The usual way to change many costs at once is the export and import: export materials, change costs in that workbook, keep the IDs and headers as they are, and import it back. Some shops also adjust markups in bulk after costs change. Whichever way you do it, keep the export you started from and the file you imported, so you can see afterwards what changed."}}, {"@type": "Question", "name": "What happens to my margins if material costs in the pricebook are out of date?", "acceptedAnswer": {"@type": "Answer", "text": "Prices built on old costs quietly lose margin on every job that uses the item. For example, a part with a $10.00 cost and a $20.00 price earns a 50% margin; if the real cost becomes $11.00 and the pricebook isn't updated, the margin is 45% without anyone deciding that. Markup is calculated on cost and margin on the selling price, so check both after a round of increases."}}, {"@type": "Question", "name": "How long does a manual pricebook cost update take?", "acceptedAnswer": {"@type": "Answer", "text": "It scales with invoice lines, not invoices. Twenty lines is a short break; two hundred lines from several suppliers can take an afternoon each week, and it is the searching for each part that takes the time, not the typing. The full routine and where it breaks are in updating a ServiceTitan pricebook by hand."}}, {"@type": "Question", "name": "How can I see when a cost changed and which invoice it came from?", "acceptedAnswer": {"@type": "Answer", "text": "Only if you keep a record. Save the pricebook export you started from and the update file you imported for each run; together they answer \"when did this cost change, and why\". StockStart keeps both files for each run and traces every row to its source invoice."}}, {"@type": "Question", "name": "Are the quantities on supplier invoices the same as stock on hand?", "acceptedAnswer": {"@type": "Answer", "text": "Not necessarily. An invoice records a purchase; receipts, credits, returns and what has already gone out on trucks all change the picture. Invoice history is good for keeping costs current, but it cannot by itself tell you current inventory."}}, {"@type": "Question", "name": "Is there software that reads supplier invoices and keeps pricebook costs up to date?", "acceptedAnswer": {"@type": "Answer", "text": "StockStart does this for shops on ServiceTitan. You upload your pricebook export and the week's supplier invoices; each line is matched by part number and unit, new items are proposed, units are converted, duplicates and cost changes are flagged, and anything uncertain waits for your decision. Approved changes are patched into your own workbook, ready for you to import. It is US $129.00 a month with a 14-day free trial and no card required."}}, {"@type": "Question", "name": "Does it connect to my ServiceTitan account or change prices on its own?", "acceptedAnswer": {"@type": "Answer", "text": "No. StockStart works only through your own export and import files; there is no API connection and nothing writes to your ServiceTitan account. You review the changes and import the file yourself. StockStart is independent software and is not affiliated with, endorsed by or certified by ServiceTitan."}}]}</script>
+  <link rel="apple-touch-icon" href="/icon-512.png">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="StockStart home"><img src="./mark.svg" width="38" height="38" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a>
+    <nav aria-label="Main navigation"><a href="./#product">The product</a><a href="./#how-it-works">How it works</a><a href="./#pricing">Pricing</a><a href="./#questions">Questions</a></nav>
+    <a class="button small dark" href="https://app.getstockstart.com/signup">Start free trial <span aria-hidden="true">↗</span></a>
+  </header>
+  
+
+<main class="g" id="main">
+  <p class="eyebrow"><span class="dot"></span> STOCKSTART · QUESTIONS</p>
+  <h1>Supplier prices changed. Now what about the pricebook?</h1>
+  <p class="lede">Your supply house raised prices, the invoice says one number and the pricebook says another, and quotes are going out on last quarter's costs. These are the questions HVAC, plumbing and electrical offices ask when they try to keep material costs current, answered plainly.</p>
+  <nav class="toc" aria-label="On this page"><a href="#current">Keeping costs current</a><a href="#units">Units and odd price changes</a><a href="#imports">Duplicates, matching and imports</a><a href="#margins">Margins, time and records</a></nav>
+
+  <h2 id="current">Keeping material costs current when supplier prices go up</h2>
+
+  <h3>How do I update material costs in my pricebook when my supplier raises prices?</h3>
+  <p>Start from the newest supplier invoice, not from memory or an old price sheet: the invoice is what you actually paid. For each line, find the matching item in your pricebook by part number, check that the invoice unit matches the pricebook unit, and change the cost only on items where it really moved. In ServiceTitan most shops do this through the pricebook export and import rather than editing items one at a time. The <a href="servicetitan-pricebook-vendor-invoices.html">weekly invoice routine</a> walks through it step by step.</p>
+
+  <h3>How often should a contractor update pricebook material costs?</h3>
+  <p>There is no single rule. Published guidance commonly suggests reviewing material pricing at least quarterly, and more often for copper, wire and other materials whose prices move quickly. A practical rhythm is to match the update to your deliveries: if invoices arrive every week, a weekly pass keeps each update small, while a month of invoices left to pile up becomes an afternoon of work.</p>
+
+  <h3>Why don't my pricebook costs match my supplier invoices?</h3>
+  <p>Usually one of four things. The supplier changed the price and nobody updated the item; the invoice is priced per box, case or roll while the pricebook counts each, foot or pound; the same part exists twice in the pricebook and the wrong copy was updated; or the cost was changed in one place while a different vendor cost is the one being used. Check the unit first, because a pack-size mismatch looks exactly like a huge price change.</p>
+
+  <h3>Does ServiceTitan update material costs automatically from supplier invoices?</h3>
+  <p>ServiceTitan offers supplier catalog integrations for some suppliers, and its help center describes cost sync and price-change options for those. If your supplier is not connected, or you buy from several supply houses, costs generally change only when someone updates them, by hand or through an import file. Check ServiceTitan's own documentation for what your account and suppliers support.</p>
+
+  <h3>What if my supply house isn't integrated with ServiceTitan?</h3>
+  <p>Then the invoices are your price source. Shops typically export the pricebook, update costs in that workbook from the week's invoices, and import it back; ServiceTitan's help center also documents a vendor-material cost import for suppliers whose price changes arrive as a spreadsheet. <a href="./">StockStart</a> is built for this case: it reads invoices from any supplier against your exported pricebook and prepares the changes for you to review and import yourself.</p>
+
+  <h3>Is there a spreadsheet or template for updating pricebook costs?</h3>
+  <p>The best template is your own pricebook export. It already has the exact column names, item IDs, codes and categories ServiceTitan accepts back, so patching changes into it avoids the failed or silent imports a blank sheet causes. The <a href="servicetitan-pricebook-import-checklist.html">import checklist</a> lists what to check before the file goes in, and there is a printable <a href="servicetitan-pricebook-weekly-checklist.pdf">weekly checklist PDF</a>.</p>
+
+  <h2 id="units">Box vs each, unit costs and price changes that look wrong</h2>
+
+  <h3>Why is the cost per unit wrong after I updated the pricebook?</h3>
+  <p>The most common cause is a pack price entered as the cost of one item: a box of 25 fittings at $84.50 typed into an item that is sold each. Every quote using that part is then off by a factor of 25 until someone notices. Converting the invoice price to the pricebook's unit before writing the cost prevents it.</p>
+
+  <h3>How do I convert a box, case or roll price to a cost per each?</h3>
+  <p>Divide the invoice price by the number of units in the pack, counted the same way the pricebook counts the item. A box of 100 elbows at $84.50 is $0.845 each; a 100 ft roll at $62.00 is $0.62 per foot if the pricebook item is per foot, but stays $62.00 if the item is the whole roll. The pack quantity is often printed in the description or the unit-of-measure column on the invoice, so read it rather than guessing.</p>
+
+  <h3>Is there a free calculator to check unit costs from a supplier invoice?</h3>
+  <p>Yes. The <a href="pricebook-unit-cost-checker.html">free pricebook unit-cost checker</a> takes invoice lines pasted from a spreadsheet, converts each pack price to a cost per unit, shows the change against your current pricebook cost, and flags likely box-versus-each errors. It runs in your browser, nothing is uploaded and there is no sign-up. It checks arithmetic on what you paste; a flag is a prompt to look, not a verdict.</p>
+
+  <h3>How do I tell a real price increase from a data entry mistake?</h3>
+  <p>Compare the size of the change with the pack quantity. If the new cost is roughly 10, 12, 25 or 100 times the old one, it is almost always a unit problem, not a price increase. A real supplier increase is usually a modest percentage and often shows across several items from the same supplier at once. When in doubt, check the line on the original invoice before changing the pricebook.</p>
+
+  <h3>What percentage price change should I flag for review?</h3>
+  <p>Pick a threshold that fits your shop and your materials; there is no industry standard. A low threshold catches more but gives you more to look at, while a high one can let a real increase on an expensive item slip through. The free checker lets you set your own percent, and StockStart flags cost changes above the threshold you choose.</p>
+
+  <h2 id="imports">Duplicate items, matching part numbers and pricebook imports</h2>
+
+  <h3>How do I stop duplicate parts showing up in my pricebook?</h3>
+  <p>Duplicates appear when a part is added as new because a search didn't find it under a different description, such as "3/4 CU 90" and "Copper elbow 3/4". Match every invoice line against the pricebook by part number and unit before adding anything, treat a description-only match as a suggestion for a person to confirm, and check the batch against itself so an invoice received by email and through a portal isn't entered twice. More on this in <a href="vendor-invoice-pricebook-matching.html">matching supplier invoice lines to pricebook items</a>.</p>
+
+  <h3>How do I match supplier part numbers to my pricebook items?</h3>
+  <p>Search the vendor part number first, then the manufacturer part number, then a normalized description. A part number match with a matching unit is a safe link; anything weaker should wait for a person. Keeping vendor and manufacturer part numbers in their own fields, exactly as printed, makes every later match easier.</p>
+
+  <h3>Why did my pricebook import fail, or change nothing?</h3>
+  <p>Common causes are a file built from a blank sheet instead of the export, renamed or reordered column headers, missing item IDs so updates create new items instead of changing existing ones, and items pointing at a category that doesn't exist. ServiceTitan's help center also has an article on costs that don't populate after an import, since vendor costs can be stored per vendor. Import a small batch first and open a few items to check unit, cost, category and active flag.</p>
+
+  <h3>Can I turn supplier invoice PDFs or photos into a pricebook update?</h3>
+  <p>Yes, but read the values before trusting them: a creased photo or an unusual invoice layout can be misread by any OCR. StockStart reads PDFs, photos, emailed receipts and spreadsheets, keeps the source image next to each line, and holds uncertain values in a review queue instead of guessing; it does not claim 100% OCR accuracy. The guide to <a href="supplier-invoice-pdf-to-pricebook.html">supplier invoice PDFs to pricebook updates</a> covers the process.</p>
+
+  <h3>How do I bulk update material prices in ServiceTitan?</h3>
+  <p>The usual way to change many costs at once is the export and import: export materials, change costs in that workbook, keep the IDs and headers as they are, and import it back. Some shops also adjust markups in bulk after costs change. Whichever way you do it, keep the export you started from and the file you imported, so you can see afterwards what changed.</p>
+
+  <h2 id="margins">Margins, time spent and a record of what changed</h2>
+
+  <h3>What happens to my margins if material costs in the pricebook are out of date?</h3>
+  <p>Prices built on old costs quietly lose margin on every job that uses the item. For example, a part with a $10.00 cost and a $20.00 price earns a 50% margin; if the real cost becomes $11.00 and the pricebook isn't updated, the margin is 45% without anyone deciding that. Markup is calculated on cost and margin on the selling price, so check both after a round of increases.</p>
+
+  <h3>How long does a manual pricebook cost update take?</h3>
+  <p>It scales with invoice lines, not invoices. Twenty lines is a short break; two hundred lines from several suppliers can take an afternoon each week, and it is the searching for each part that takes the time, not the typing. The full routine and where it breaks are in <a href="servicetitan-pricebook-manual-update.html">updating a ServiceTitan pricebook by hand</a>.</p>
+
+  <h3>How can I see when a cost changed and which invoice it came from?</h3>
+  <p>Only if you keep a record. Save the pricebook export you started from and the update file you imported for each run; together they answer "when did this cost change, and why". StockStart keeps both files for each run and traces every row to its source invoice.</p>
+
+  <h3>Are the quantities on supplier invoices the same as stock on hand?</h3>
+  <p>Not necessarily. An invoice records a purchase; receipts, credits, returns and what has already gone out on trucks all change the picture. Invoice history is good for keeping costs current, but it cannot by itself tell you current inventory.</p>
+
+  <h3>Is there software that reads supplier invoices and keeps pricebook costs up to date?</h3>
+  <p>StockStart does this for shops on ServiceTitan. You upload your pricebook export and the week's supplier invoices; each line is matched by part number and unit, new items are proposed, units are converted, duplicates and cost changes are flagged, and anything uncertain waits for your decision. Approved changes are patched into your own workbook, ready for you to import. It is US $129.00 a month with a 14-day free trial and no card required.</p>
+
+  <h3>Does it connect to my ServiceTitan account or change prices on its own?</h3>
+  <p>No. StockStart works only through your own export and import files; there is no API connection and nothing writes to your ServiceTitan account. You review the changes and import the file yourself. StockStart is independent software and is not affiliated with, endorsed by or certified by ServiceTitan.</p>
+
+  <div class="cta">
+    <p class="eyebrow"><span class="dot"></span> START WITH THIS WEEK'S INVOICES</p>
+    <h2>Check a few lines free, or let StockStart do the matching.</h2>
+    <p>Paste a handful of invoice lines into the free unit-cost checker to catch box-versus-each errors and cost changes in a minute. When you want every invoice read against your pricebook, start the 14-day trial; no card required.</p>
+    <a class="btn" href="pricebook-unit-cost-checker.html">Open the free checker</a> &nbsp; <a class="btn" href="https://app.getstockstart.com/signup">Start your free trial ↗</a>
+  </div>
+  <p class="note">This page is general information about keeping a pricebook current. It is not legal, tax or accounting advice. Product features of other companies change; check ServiceTitan's and your suppliers' own documentation for what applies to your account.</p>
+<aside class="ms-store-cta" style="margin:40px 0 8px;padding:20px 22px;border:1px solid rgba(127,127,127,.35);border-radius:10px;display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&cid=ss-pricebook-cost-update-questions" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="180" alt="Get StockStart from the Microsoft Store"></a><p style="margin:0;flex:1 1 260px">StockStart is in the Microsoft Store. Microsoft checks and signs Store apps, so Windows installs it without an unknown-publisher warning.</p></aside></main>
+
+  <footer class="wrap">
+    <div class="footer-top"><a class="brand" href="./"><img src="./mark.svg" width="32" height="32" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a><p>Practical software. A clearer way forward.</p><div class="legal-links"><a href="./terms.html">Terms</a><a href="./privacy.html">Privacy</a><a href="./refunds.html">Refunds &amp; cancellation</a><a href="./licenses.html">Third-party notices</a><a href="mailto:support@getstockstart.com">Contact</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Profitpin LLC. StockStart.</span><span>ServiceTitan is a trademark of its respective owner. StockStart is independent software and is not affiliated with, endorsed by, or certified by ServiceTitan. It prepares reviewed data; it does not write to your ServiceTitan account.</span></div>
+  </footer>
+<script src="/lead-source.js" defer></script></body>
+</html>
