@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .legal-wrap { max-width: 980px; }
+  .legal-intro { padding: 56px 0 8px; }
+  .legal-intro h1 { font-size: clamp(38px, 4.4vw, 56px); letter-spacing: -2px; margin-bottom: 12px; }
+  .legal-meta { font-size: 12px; letter-spacing: 1px; color: var(--muted); margin: 0 0 30px; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; padding-bottom: 80px; }
+  .legal-toc { position: sticky; top: 24px; font-size: 12px; }
+  .legal-toc strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 10px; }
+  .legal-toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .legal-toc a:hover { color: var(--ink); }
+  .legal-body h2 { font-size: 24px; letter-spacing: -.6px; margin: 40px 0 10px; }
+  .legal-body section:first-child h2 { margin-top: 0; }
+  .legal-body p, .legal-body li { max-width: 68ch; font-size: 15.5px; line-height: 1.7; }
+  .legal-body ul { padding-left: 22px; }
+  .plain { border-left: 3px solid #718341; background: #f2f5e8; padding: 12px 16px; margin: 0 0 18px; max-width: 68ch; font-size: 15px; border-radius: 0 6px 6px 0; }
+  .plain strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 4px; }
+  .legal-body code { font-family: Consolas, monospace; font-size: .92em; background: #eef0e7; padding: 1px 5px; border-radius: 3px; }
+  .legal-body table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .legal-body th, .legal-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body th { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+  .legal-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+  @media (max-width: 860px) { .legal-layout { grid-template-columns: 1fr; gap: 20px; } .legal-toc { position: static; } }
+</style>
+<title>Update a ServiceTitan Pricebook from Invoices | StockStart</title>
+<meta name="description" content="For HVAC, plumbing and electrical teams: match supplier invoices to an exported ServiceTitan pricebook, review cost changes and prepare a manual import.">
+<link rel="canonical" href="https://getstockstart.com/servicetitan-pricebook-vendor-invoices.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="StockStart"><meta property="og:title" content="Update a ServiceTitan Pricebook from Invoices | StockStart"><meta property="og:description" content="For HVAC, plumbing and electrical teams: match supplier invoices to an exported ServiceTitan pricebook, review cost changes and prepare a manual import."><meta property="og:url" content="https://getstockstart.com/servicetitan-pricebook-vendor-invoices.html"><meta name="twitter:card" content="summary">
+
+<style>
+  .g{max-width:860px;margin:0 auto;padding:40px 20px 80px;line-height:1.6}
+  .g h1{font-size:38px;line-height:1.1;margin:8px 0 14px}.g h2{font-size:24px;margin:40px 0 10px}.g h3{font-size:18px;margin:26px 0 6px}
+  .g p,.g li{max-width:720px}.g ul,.g ol{padding-left:22px}.g li{margin-bottom:7px}
+  .g .lede{font-size:18px;opacity:.85;max-width:720px}
+  .g .toc{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;margin:10px 0 0;letter-spacing:.02em}.g .toc a{text-decoration:none;opacity:.8}.g .toc a:hover{opacity:1;text-decoration:underline}
+  .g .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 6px}
+  .g .cards div{border:1px solid rgba(0,0,0,.15);border-radius:8px;padding:14px 16px;background:rgba(255,255,255,.55)}
+  .g .cards .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}.g .cards .v{margin-top:6px;font-size:15px}
+  .g table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0 6px;background:rgba(255,255,255,.55)}
+  .g th,.g td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,0,0,.15);vertical-align:top}.g th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;font-weight:600}
+  .g .check{list-style:none;padding:0;max-width:720px}.g .check li{display:grid;grid-template-columns:24px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,.18)}.g .check li::before{content:"";width:15px;height:15px;border:1.5px solid currentColor;border-radius:3px;margin-top:5px;opacity:.7}
+  .g .note{border-left:3px solid currentColor;padding:10px 14px;margin:14px 0;max-width:720px;background:rgba(0,0,0,.04);font-size:15px}
+  .g .caution{background:rgba(160,40,40,.07);border-left-color:#7a2626}
+  .g .cta{border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:24px 26px;margin-top:36px;background:rgba(255,255,255,.6)}
+  .g .cta h2{margin-top:0}.g .cta .btn{display:inline-block;padding:11px 20px;border-radius:6px;background:#173e32;color:#fff !important;text-decoration:none;font-weight:600;margin-top:8px}
+  @media print{header,footer,.g .cta,.g .toc{display:none}.g{padding:0}}
+</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "HowTo", "name": "How to keep a ServiceTitan pricebook current from vendor invoices (without duplicates)", "description": "A routine for HVAC, plumbing and electrical shops: export the pricebook once, read each supplier invoice against it, match existing items, catch new parts and price changes, and import clean updates back — weekly, without duplicate items.", "step": [{"@type": "HowToStep", "name": "Export the current pricebook", "text": "Export materials and equipment from ServiceTitan; this is the baseline for the week."}, {"@type": "HowToStep", "name": "Collect the week's supplier documents", "text": "PDF invoices, emailed receipts, photos and supplier spreadsheets in one inbox."}, {"@type": "HowToStep", "name": "Read and match each line", "text": "Match by vendor or manufacturer part number and unit; description-only matches are proposals."}, {"@type": "HowToStep", "name": "Review the flagged lines", "text": "New item proposals, cost changes over threshold, unit mismatches, duplicates and unreadable values."}, {"@type": "HowToStep", "name": "Export and import the update", "text": "Patch approved changes into your own exported workbook and import it into ServiceTitan."}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does ServiceTitan update the pricebook from vendor invoices itself?", "acceptedAnswer": {"@type": "Answer", "text": "ServiceTitan provides the pricebook and import/export tools; reading invoices, matching lines and deciding what is new remains office work."}}, {"@type": "Question", "name": "How accurate is OCR on supplier invoices?", "acceptedAnswer": {"@type": "Answer", "text": "Good on clean PDFs and weaker on photos; uncertain values should be reviewed against the source image rather than written into the pricebook."}}, {"@type": "Question", "name": "Can I start with a messy ServiceTitan pricebook?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The first pass builds a clean baseline by matching invoices against existing items and surfacing duplicates."}}]}]</script>
+  <link rel="apple-touch-icon" href="/icon-512.png">
+</head>
+<body><div id="ppg-home-strip" style="background:#173f2c;color:#fff;font:600 15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:10px 16px;text-align:center;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center"><span>Free 30-day trial. No card, no automatic charge.</span><a href="https://app.getstockstart.com/signup?utm_source=home&utm_medium=strip" style="background:#fff;color:#173f2c;padding:7px 14px;border-radius:6px;text-decoration:none;font-weight:700">Start free trial</a><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&amp;cid=ss-strip-servicetitan-pricebook-vendor-" style="color:#fff;text-decoration:underline;text-underline-offset:3px">or get it from the Microsoft Store</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="StockStart home"><img src="./mark.svg" width="38" height="38" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a>
+    <nav aria-label="Main navigation"><a href="./#product">The product</a><a href="./#how-it-works">How it works</a><a href="./#pricing">Pricing</a><a href="./#questions">Questions</a></nav>
+    <a class="button small dark" href="https://app.getstockstart.com/signup">Start free trial <span aria-hidden="true">↗</span></a>
+  </header>
+  
+<main class="g" id="main">
+  <p class="eyebrow"><span class="dot"></span> STOCKSTART · GUIDE</p>
+  <h1>How to update a ServiceTitan pricebook from supplier invoices, without duplicates.</h1>
+  <p class="lede">Supplier prices move every month and new parts arrive every week. If the pricebook doesn't keep up, techs quote from stale costs and the office builds duplicates. Here is a routine that keeps one clean pricebook, run from the invoices you already receive.</p>
+  <nav class="toc" aria-label="On this page"><a href="#why">Why pricebooks drift</a><a href="#routine">The weekly routine</a><a href="#match">Matching rules</a><a href="#exceptions">What to review</a><a href="#import">Importing back</a><a href="#checklist">Checklist</a><a href="#faq">Questions</a></nav>
+
+  <h2 id="why">Why pricebooks drift</h2>
+  <ul>
+    <li><b>Costs change silently.</b> The supplier's price on this week's invoice is the real cost; the pricebook still has last spring's.</li>
+    <li><b>New parts get typed by hand.</b> Different people, different naming — "3/4 copper 90", "Copper elbow 3/4in", "ELBOW CU 3/4" — three items for one part.</li>
+    <li><b>Units get mixed.</b> The invoice says a box of 25; the pricebook item is each. Cost per unit is off by 25×.</li>
+    <li><b>One-time cleanups don't stick.</b> A big pricebook cleanup fixes today's list; next week's delivery starts the drift again.</li>
+  </ul>
+  <p>The fix is a routine, not a project: every invoice gets read against the current pricebook before anything is added.</p>
+
+  <h2 id="routine">The weekly routine</h2>
+  <ol>
+    <li><b>Export the current pricebook from ServiceTitan.</b> Materials (and equipment if you stock it). This export is the source of truth for the week — everything is matched against it.</li>
+    <li><b>Collect the week's supplier documents.</b> PDF invoices, emailed receipts, photos from the truck, the supply house's spreadsheet. One inbox.</li>
+    <li><b>Read each line.</b> Part number, description, quantity, unit, unit cost, vendor.</li>
+    <li><b>Match against the pricebook.</b> Existing item → link it, compare cost. No match → propose a new item. Ambiguous → hold for review.</li>
+    <li><b>Review the flagged lines</b> (see below). Decide; don't let uncertain lines through.</li>
+    <li><b>Export the update</b> — new items and cost changes in the layout ServiceTitan's import expects — and import it.</li>
+    <li><b>Next week, export again.</b> The pricebook you export now already includes what you approved, so the baseline stays current.</li>
+  </ol>
+  <div class="note">Do it weekly if you receive deliveries weekly. The size of the review queue grows with the gap between runs; a month of invoices is an afternoon, a week is coffee-break work.</div>
+
+  <h2 id="match">Matching rules that keep one item per part</h2>
+  <table>
+    <thead><tr><th>Signal</th><th>Use it to</th><th>Watch out for</th></tr></thead>
+    <tbody>
+      <tr><td>Vendor part number</td><td>Match with confidence when the pricebook stores it</td><td>Same part, different number at another supplier</td></tr>
+      <tr><td>Manufacturer part number</td><td>Match across suppliers</td><td>Often missing from the invoice; found on the receiving record</td></tr>
+      <tr><td>Normalised description</td><td>Catch near-duplicates ("3/4 CU ELL 90" vs "Copper elbow 3/4")</td><td>Description alone is a proposal, not a match — review it</td></tr>
+      <tr><td>Unit of measure</td><td>Convert box/case/roll to the pricebook's unit before comparing cost</td><td>A UOM mismatch looks like a huge price change</td></tr>
+      <tr><td>Cost delta</td><td>Flag increases/decreases above a threshold you choose</td><td>A big delta is often a UOM or quantity problem, not a price change</td></tr>
+    </tbody>
+  </table>
+  <p>Rule of thumb: a part number match with a matching unit is a link; a description-only match is a suggestion; anything else waits for a person.</p>
+
+  <h2 id="exceptions">What ends up in review</h2>
+  <ul>
+    <li><b>New item proposals</b> — confirm it is really new and not a naming variant of something you have.</li>
+    <li><b>Cost changes over threshold</b> — accept, or investigate the unit/quantity first.</li>
+    <li><b>Unit mismatches</b> — set the conversion once; it applies next time.</li>
+    <li><b>Duplicates in the invoice batch</b> — the same invoice received twice (email and portal), or the same line photographed twice.</li>
+    <li><b>Unreadable values</b> — OCR on a creased photo is a guess; the source image stays attached so a person can read it.</li>
+  </ul>
+  <p>Invoice quantities are purchases, not stock on hand. Receipts, credits and returns change the picture; don't treat an invoice history as an inventory count.</p>
+
+  <h2 id="import">Importing back into ServiceTitan</h2>
+  <ul>
+    <li>Use your own exported workbook as the template: patch approved changes into it rather than building a new file, so column names, IDs and categories are exactly what ServiceTitan expects.</li>
+    <li>Import in small batches the first time and spot-check a few items in the pricebook after each.</li>
+    <li>Keep the export you started from and the update you imported for each run — that's your audit trail when someone asks "when did this cost change?"</li>
+    <li>Nothing should write to your ServiceTitan tenant automatically; a reviewed file you import yourself is safer than an integration you can't see.</li>
+  </ul>
+
+  <h2 id="checklist">Weekly checklist</h2>
+  <ul class="check">
+    <li>Fresh pricebook export taken before reading any invoice.</li>
+    <li>All of the week's supplier documents in the inbox, none read twice.</li>
+    <li>Every line matched, proposed or held — none skipped.</li>
+    <li>Units converted; cost deltas over threshold reviewed.</li>
+    <li>New item proposals checked against near-duplicates.</li>
+    <li>Update exported in ServiceTitan's layout and imported.</li>
+    <li>Export + update files kept for the run.</li>
+  </ul>
+  <p><a href="servicetitan-pricebook-weekly-checklist.pdf" download>Download this checklist as a one-page PDF ↓</a></p>
+
+  <h2 id="faq">Questions people ask</h2>
+  <h3>Does ServiceTitan do this itself?</h3><p>ServiceTitan holds the pricebook and has import/export tools; the work of reading invoices, matching lines and deciding what is new is still on the office. This routine is about making that part fast and consistent.</p>
+  <h3>How accurate is invoice OCR?</h3><p>Good on clean PDFs, weaker on photos. The point is not perfect reading — it is that uncertain values are shown for review with the source image, rather than silently written into the pricebook.</p>
+  <h3>Can I start with a messy pricebook?</h3><p>Yes. The first pass builds a clean baseline by matching your invoices against what you have and surfacing the duplicates; after that, weekly runs keep it clean.</p>
+
+  <p><a href="pricebook-unit-cost-checker.html">Check a few lines now with the free unit-cost checker.</a></p>
+  <p>Related guides: <a href="vendor-invoice-pricebook-matching.html">matching supplier invoice lines to pricebook items</a>, <a href="supplier-invoice-pdf-to-pricebook.html">turning supplier invoice PDFs into pricebook updates</a> and <a href="servicetitan-pricebook-manual-update.html">updating a ServiceTitan pricebook by hand</a>.</p>
+  <div class="cta">
+    <p class="eyebrow"><span class="dot"></span> EVERY INVOICE, INTO YOUR PRICEBOOK, CLEAN</p>
+    <h2>StockStart runs this routine for you.</h2>
+    <p>Open your ServiceTitan pricebook export and each week's invoices, receipts, photos and spreadsheets in StockStart. It reads them, matches existing items, proposes new ones, and catches unit problems and duplicates. Approved new items are added as new rows to the Materials sheet of your own export for import. For items already in that sheet, StockStart updates the Cost to the invoice cost and shows each old and new cost. The item library CSV also lists each current invoice cost (LatestCost column). To see how a cost moved against your pricebook, use the free unit-cost checker. Uncertain lines never leave the review queue. $129.00/month, 30-day no-card trial; no automatic charge, unlimited invoices.</p>
+    <a class="btn" href="https://app.getstockstart.com/signup">Start your free trial ↗</a>
+  </div>
+<aside class="ms-store-cta" style="margin:40px 0 8px;padding:20px 22px;border:1px solid rgba(127,127,127,.35);border-radius:10px;display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&cid=ss-servicetitan-pricebook-vendor-invoices" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="180" alt="Get StockStart from the Microsoft Store"></a><p style="margin:0;flex:1 1 260px">StockStart is in the Microsoft Store. Microsoft checks and signs Store apps, so Windows installs it without an unknown-publisher warning.</p></aside></main>
+
+  <footer class="wrap">
+    <div class="footer-top"><a class="brand" href="./"><img src="./mark.svg" width="32" height="32" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a><p>Practical software. A clearer way forward.</p><div class="legal-links"><a href="./terms.html">Terms</a><a href="./privacy.html">Privacy</a><a href="./refunds.html">Refunds &amp; cancellation</a><a href="./licenses.html">Third-party notices</a><a href="mailto:support@getstockstart.com">Contact</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Profitpin LLC. StockStart.</span><span>ServiceTitan is a trademark of its respective owner. StockStart is independent software and is not affiliated with, endorsed by, or certified by ServiceTitan. It prepares reviewed data; it does not write to your ServiceTitan account.</span></div>
+  </footer>
+<script src="/lead-source.js" defer></script></body>
+</html>

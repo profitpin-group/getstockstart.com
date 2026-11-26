@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Third-party notices — StockStart</title>
+<meta name="description" content="Open-source components used in StockStart and their licenses.">
+<link rel="canonical" href="https://getstockstart.com/licenses.html">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .legal-wrap { max-width: 980px; }
+  .legal-intro { padding: 56px 0 8px; }
+  .legal-intro h1 { font-size: clamp(38px, 4.4vw, 56px); letter-spacing: -2px; margin-bottom: 12px; }
+  .legal-meta { font-size: 12px; letter-spacing: 1px; color: var(--muted); margin: 0 0 30px; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; padding-bottom: 80px; }
+  .legal-toc { position: sticky; top: 24px; font-size: 12px; }
+  .legal-toc strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 10px; }
+  .legal-toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .legal-toc a:hover { color: var(--ink); }
+  .legal-body h2 { font-size: 24px; letter-spacing: -.6px; margin: 40px 0 10px; }
+  .legal-body section:first-child h2 { margin-top: 0; }
+  .legal-body p, .legal-body li { max-width: 68ch; font-size: 15.5px; line-height: 1.7; }
+  .legal-body ul { padding-left: 22px; }
+  .plain { border-left: 3px solid #718341; background: #f2f5e8; padding: 12px 16px; margin: 0 0 18px; max-width: 68ch; font-size: 15px; border-radius: 0 6px 6px 0; }
+  .plain strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 4px; }
+  .legal-body code { font-family: Consolas, monospace; font-size: .92em; background: #eef0e7; padding: 1px 5px; border-radius: 3px; }
+  .legal-body table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .legal-body th, .legal-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body th { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+  .legal-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+  @media (max-width: 860px) { .legal-layout { grid-template-columns: 1fr; gap: 20px; } .legal-toc { position: static; } }
+</style>
+  <link rel="apple-touch-icon" href="/icon-512.png">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="StockStart home"><img src="./mark.svg" width="38" height="38" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a>
+    <nav aria-label="Main navigation"><a href="./#product">The product</a><a href="./#how-it-works">How it works</a><a href="./#pricing">Pricing</a><a href="./#questions">Questions</a></nav>
+    <a class="button small dark" href="https://app.getstockstart.com/signup">Start free trial <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main" class="wrap legal-wrap">
+    <div class="legal-intro">
+      <p class="eyebrow"><span class="dot"></span> THIRD-PARTY NOTICES</p>
+      <h1>Open-source components in StockStart.</h1>
+      <p class="legal-meta">EFFECTIVE SEPTEMBER 15, 2026 · PROFITPIN LLC · SUPPORT@GETSTOCKSTART.COM</p>
+    </div>
+    <div class="legal-layout">
+      <nav class="legal-toc" aria-label="On this page"><strong>ON THIS PAGE</strong><a href="#about">About these notices</a><a href="#components">Components</a><a href="#contact">Questions</a></nav>
+      <div class="legal-body">
+      <section id="about">
+        <h2>About these notices</h2>
+        <p>StockStart is built with open-source components, each used under its own license, listed below with links to the full text. These licenses apply to those components; StockStart itself is provided under the <a href="./terms.html">Terms of Service</a>.</p>
+        <p>ServiceTitan is a trademark of its owner. StockStart produces files in a ServiceTitan-compatible layout; it is not affiliated with, endorsed by, or supported by ServiceTitan.</p>
+      </section>
+      <section id="components">
+        <h2>Components</h2>
+        <table><thead><tr><th>Component</th><th>License</th><th></th></tr></thead><tbody>
+        <tr><td>Next.js / React / React DOM</td><td>MIT</td><td><a href="https://github.com/vercel/next.js/blob/canary/license.md">License</a></td></tr>
+        <tr><td>Drizzle ORM</td><td>Apache-2.0</td><td><a href="https://github.com/drizzle-team/drizzle-orm/blob/main/LICENSE">License</a></td></tr>
+        <tr><td>Tesseract.js (browser OCR)</td><td>Apache-2.0</td><td><a href="https://github.com/naptha/tesseract.js/blob/master/LICENSE">License</a></td></tr>
+        <tr><td>RapidOCR / ONNX Runtime (developer-only local OCR; not used by the hosted app)</td><td>Apache-2.0 / MIT</td><td><a href="https://github.com/RapidAI/RapidOCR/blob/main/LICENSE">License</a></td></tr>
+        <tr><td>pdf.js</td><td>Apache-2.0</td><td><a href="https://github.com/mozilla/pdf.js/blob/master/LICENSE">License</a></td></tr>
+        <tr><td>SheetJS (xlsx)</td><td>Apache-2.0</td><td><a href="https://github.com/SheetJS/sheetjs/blob/master/LICENSE">License</a></td></tr>
+        <tr><td>stripe-node</td><td>MIT</td><td><a href="https://github.com/stripe/stripe-node/blob/master/LICENSE">License</a></td></tr>
+        <tr><td>Radix UI, Base UI, shadcn, lucide-react, Recharts, react-hook-form, zod, date-fns, Tailwind utilities</td><td>MIT</td><td><a href="https://opensource.org/license/mit">MIT text</a></td></tr>
+        </tbody></table>
+      </section>
+      <section id="contact">
+        <h2>Questions</h2>
+        <p><a href="mailto:support@getstockstart.com">support@getstockstart.com</a></p>
+      </section>
+      </div>
+    </div>
+  </main>
+  <footer class="wrap">
+    <div class="footer-top"><a class="brand" href="./"><img src="./mark.svg" width="32" height="32" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a><p>Practical software. A clearer way forward.</p><div class="legal-links"><a href="./terms.html">Terms</a><a href="./privacy.html">Privacy</a><a href="./refunds.html">Refunds &amp; cancellation</a><a href="./licenses.html">Third-party notices</a><a href="mailto:support@getstockstart.com">Contact</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Profitpin LLC. StockStart.</span><span>ServiceTitan is a trademark of its respective owner. StockStart is independent software and is not affiliated with, endorsed by, or certified by ServiceTitan. It prepares reviewed data; it does not write to your ServiceTitan account.</span></div>
+  </footer>
+<script src="/lead-source.js" defer></script></body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .legal-wrap { max-width: 980px; }
+  .legal-intro { padding: 56px 0 8px; }
+  .legal-intro h1 { font-size: clamp(38px, 4.4vw, 56px); letter-spacing: -2px; margin-bottom: 12px; }
+  .legal-meta { font-size: 12px; letter-spacing: 1px; color: var(--muted); margin: 0 0 30px; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; padding-bottom: 80px; }
+  .legal-toc { position: sticky; top: 24px; font-size: 12px; }
+  .legal-toc strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 10px; }
+  .legal-toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .legal-toc a:hover { color: var(--ink); }
+  .legal-body h2 { font-size: 24px; letter-spacing: -.6px; margin: 40px 0 10px; }
+  .legal-body section:first-child h2 { margin-top: 0; }
+  .legal-body p, .legal-body li { max-width: 68ch; font-size: 15.5px; line-height: 1.7; }
+  .legal-body ul { padding-left: 22px; }
+  .plain { border-left: 3px solid #718341; background: #f2f5e8; padding: 12px 16px; margin: 0 0 18px; max-width: 68ch; font-size: 15px; border-radius: 0 6px 6px 0; }
+  .plain strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 4px; }
+  .legal-body code { font-family: Consolas, monospace; font-size: .92em; background: #eef0e7; padding: 1px 5px; border-radius: 3px; }
+  .legal-body table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .legal-body th, .legal-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body th { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+  .legal-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+  @media (max-width: 860px) { .legal-layout { grid-template-columns: 1fr; gap: 20px; } .legal-toc { position: static; } }
+</style>
+<title>Manually Update a ServiceTitan Pricebook | StockStart</title>
+<meta name="description" content="How shops update a ServiceTitan pricebook manually from supplier invoices — the export, the lookup, the retype, the import — what it actually costs in time and errors, and when to stop doing it that way.">
+<link rel="canonical" href="https://getstockstart.com/servicetitan-pricebook-manual-update.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="StockStart"><meta property="og:title" content="Manually Update a ServiceTitan Pricebook | StockStart"><meta property="og:description" content="How shops update a ServiceTitan pricebook manually from supplier invoices — the export, the lookup, the retype, the import — what it actually costs in time and errors, and when to stop doing it that way."><meta property="og:url" content="https://getstockstart.com/servicetitan-pricebook-manual-update.html"><meta name="twitter:card" content="summary">
+
+<style>
+  .g{max-width:860px;margin:0 auto;padding:40px 20px 80px;line-height:1.6}
+  .g h1{font-size:38px;line-height:1.1;margin:8px 0 14px}.g h2{font-size:24px;margin:40px 0 10px}.g h3{font-size:18px;margin:26px 0 6px}
+  .g p,.g li{max-width:720px}.g ul,.g ol{padding-left:22px}.g li{margin-bottom:7px}
+  .g .lede{font-size:18px;opacity:.85;max-width:720px}
+  .g .toc{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;margin:10px 0 0;letter-spacing:.02em}.g .toc a{text-decoration:none;opacity:.8}.g .toc a:hover{opacity:1;text-decoration:underline}
+  .g .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 6px}
+  .g .cards div{border:1px solid rgba(0,0,0,.15);border-radius:8px;padding:14px 16px;background:rgba(255,255,255,.55)}
+  .g .cards .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}.g .cards .v{margin-top:6px;font-size:15px}
+  .g table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0 6px;background:rgba(255,255,255,.55)}
+  .g th,.g td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,0,0,.15);vertical-align:top}.g th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;font-weight:600}
+  .g .check{list-style:none;padding:0;max-width:720px}.g .check li{display:grid;grid-template-columns:24px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,.18)}.g .check li::before{content:"";width:15px;height:15px;border:1.5px solid currentColor;border-radius:3px;margin-top:5px;opacity:.7}
+  .g .note{border-left:3px solid currentColor;padding:10px 14px;margin:14px 0;max-width:720px;background:rgba(0,0,0,.04);font-size:15px}
+  .g .caution{background:rgba(160,40,40,.07);border-left-color:#7a2626}
+  .g .cta{border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:24px 26px;margin-top:36px;background:rgba(255,255,255,.6)}
+  .g .cta h2{margin-top:0}.g .cta .btn{display:inline-block;padding:11px 20px;border-radius:6px;background:#173e32;color:#fff !important;text-decoration:none;font-weight:600;margin-top:8px}
+  @media print{header,footer,.g .cta,.g .toc{display:none}.g{padding:0}}
+</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "HowTo", "name": "Updating a ServiceTitan pricebook by hand: the routine, the time it takes, and where it breaks", "description": "How shops update a ServiceTitan pricebook manually from supplier invoices — the export, the lookup, the retype, the import — what it actually costs in time and errors, and when to stop doing it that way.", "step": [{"@type": "HowToStep", "name": "Export the pricebook", "text": "Materials and equipment from ServiceTitan; this is the baseline."}, {"@type": "HowToStep", "name": "Work through each invoice line", "text": "Find the part in the export, or decide it's new."}, {"@type": "HowToStep", "name": "Convert the unit", "text": "Box, case or roll to the pricebook's unit before writing a cost."}, {"@type": "HowToStep", "name": "Update or add the row", "text": "Change the cost on existing items; add genuinely new ones with part numbers."}, {"@type": "HowToStep", "name": "Import and verify", "text": "Import the workbook and check a sample of items in the pricebook."}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you update a ServiceTitan pricebook from supplier invoices?", "acceptedAnswer": {"@type": "Answer", "text": "Export the pricebook, match each invoice line to an existing item by part number and unit, update costs, add genuinely new items, then import the workbook back and verify a sample."}}, {"@type": "Question", "name": "How long does a manual pricebook update take?", "acceptedAnswer": {"@type": "Answer", "text": "It scales with invoice lines, not invoices — a week of deliveries is commonly an hour or two of matching and typing, and it is the matching, not the typing, that takes the time."}}, {"@type": "Question", "name": "Why do duplicate items appear in a ServiceTitan pricebook?", "acceptedAnswer": {"@type": "Answer", "text": "Because a part is added as new when it already exists under a different description or part number — the match was done by eye, or skipped when the office was busy."}}]}]</script>
+  <link rel="apple-touch-icon" href="/icon-512.png">
+</head>
+<body><div id="ppg-home-strip" style="background:#173f2c;color:#fff;font:600 15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:10px 16px;text-align:center;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center"><span>Free 30-day trial. No card, no automatic charge.</span><a href="https://app.getstockstart.com/signup?utm_source=home&utm_medium=strip" style="background:#fff;color:#173f2c;padding:7px 14px;border-radius:6px;text-decoration:none;font-weight:700">Start free trial</a><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&amp;cid=ss-strip-servicetitan-pricebook-manual-" style="color:#fff;text-decoration:underline;text-underline-offset:3px">or get it from the Microsoft Store</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="StockStart home"><img src="./mark.svg" width="38" height="38" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a>
+    <nav aria-label="Main navigation"><a href="./#product">The product</a><a href="./#how-it-works">How it works</a><a href="./#pricing">Pricing</a><a href="./#questions">Questions</a></nav>
+    <a class="button small dark" href="https://app.getstockstart.com/signup">Start free trial <span aria-hidden="true">↗</span></a>
+  </header>
+  
+<main class="g" id="main">
+  <p class="eyebrow"><span class="dot"></span> STOCKSTART · GUIDE</p>
+  <h1>Updating a ServiceTitan pricebook by hand.</h1>
+  <p class="lede">This is the routine most shops actually run. Here it is written out properly, what it costs in time, and the point where doing it by hand stops being the cheap option.</p>
+  <nav class="toc" aria-label="On this page"><a href="#routine">The manual routine</a><a href="#time">What it costs</a><a href="#enough">When it's fine</a><a href="#breaks">Where it breaks</a></nav>
+
+  <h2 id="routine">The manual routine</h2>
+  <ol>
+    <li><b>Export the pricebook</b> from ServiceTitan — materials, and equipment if you stock it. This is the baseline you edit; never build the import file from a blank sheet.</li>
+    <li><b>Open the week's invoices</b> — PDFs, emailed receipts, photos from the truck, the supply house spreadsheet.</li>
+    <li><b>For each line, find the part</b> in the export. Search the vendor part number first, then the manufacturer number, then the description. This is the step that takes the time.</li>
+    <li><b>Convert the unit</b> before writing anything — a box of 25 is not an each.</li>
+    <li><b>Update the cost</b> on items you found; <b>add a row</b> for items you're sure are new.</li>
+    <li><b>Import</b> the workbook, then open three or four items in the pricebook and check unit, cost and category.</li>
+  </ol>
+  <p>The pre-flight checks that keep an import from failing are in the <a href="./servicetitan-pricebook-import-checklist.html">import checklist</a>.</p>
+
+  <h2 id="time">What it actually costs</h2>
+  <p>The cost scales with invoice <i>lines</i>, not invoices. Twenty lines is a coffee break. Two hundred lines across six suppliers is somebody's afternoon, every week — and it's the searching that eats the time, not the typing. The expensive part isn't the hour. It's the week you skip when you're busy, then the next, and then the pricebook is three months behind and every quote is built on old costs.</p>
+
+  <h2 id="enough">When doing it by hand is fine</h2>
+  <p>One or two suppliers, a clean price file they send you, and a pricebook that rarely gains new parts. If that's you, keep your money.</p>
+
+  <h2 id="breaks">Where it breaks</h2>
+  <ol>
+    <li><b>Duplicates.</b> Under time pressure a part gets added as new because the search didn't find it. Six months on there are three versions of the same fitting and no one knows which is current.</li>
+    <li><b>Units.</b> A box price written into an each item. Every quote using that part is wrong by a factor of 25 until somebody notices — usually on a job that lost money.</li>
+    <li><b>Skipped weeks.</b> The routine is the first thing dropped in a busy week, and it doesn't catch up on its own.</li>
+    <li><b>No trail.</b> "When did this cost change, and from which invoice?" has no answer, because the export you edited was overwritten by the next one.</li>
+  </ol>
+
+  <p><a href="pricebook-unit-cost-checker.html">Check a few lines now with the free unit-cost checker.</a></p>
+  <div class="cta">
+    <p class="eyebrow"><span class="dot"></span> THE SAME ROUTINE, WITHOUT THE SEARCHING</p>
+    <h2>StockStart does the matching; you do the deciding.</h2>
+    <p>Open your pricebook export and the week's invoices in StockStart. Each line is matched by part number and unit, new items are proposed, units converted, duplicates caught, and anything uncertain waits in a review queue with the source image. Approved new items are added as new rows to the Materials sheet of your own ServiceTitan export, ready for you to import. For items already in that sheet, StockStart updates the Cost to the invoice cost and shows each old and new cost. The item library CSV also lists each current invoice cost (LatestCost column). Your files are not kept on our servers, so save each run's export and import file yourself to know when a cost changed. $129.00/month, 30-day no-card trial.</p>
+    <a class="btn" href="https://app.getstockstart.com/signup">Start your free trial ↗</a>
+  </div>
+<aside class="ms-store-cta" style="margin:40px 0 8px;padding:20px 22px;border:1px solid rgba(127,127,127,.35);border-radius:10px;display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&cid=ss-servicetitan-pricebook-manual-update" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="180" alt="Get StockStart from the Microsoft Store"></a><p style="margin:0;flex:1 1 260px">StockStart is in the Microsoft Store. Microsoft checks and signs Store apps, so Windows installs it without an unknown-publisher warning.</p></aside></main>
+
+  <footer class="wrap">
+    <div class="footer-top"><a class="brand" href="./"><img src="./mark.svg" width="32" height="32" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a><p>Practical software. A clearer way forward.</p><div class="legal-links"><a href="./terms.html">Terms</a><a href="./privacy.html">Privacy</a><a href="./refunds.html">Refunds &amp; cancellation</a><a href="./licenses.html">Third-party notices</a><a href="mailto:support@getstockstart.com">Contact</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Profitpin LLC. StockStart.</span><span>ServiceTitan is a trademark of its respective owner. StockStart is independent software and is not affiliated with, endorsed by, or certified by ServiceTitan. It prepares reviewed data; it does not write to your ServiceTitan account.</span></div>
+  </footer>
+<script src="/lead-source.js" defer></script></body>
+</html>

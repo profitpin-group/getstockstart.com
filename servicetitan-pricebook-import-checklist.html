@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./styles.css">
+<style>
+  .legal-wrap { max-width: 980px; }
+  .legal-intro { padding: 56px 0 8px; }
+  .legal-intro h1 { font-size: clamp(38px, 4.4vw, 56px); letter-spacing: -2px; margin-bottom: 12px; }
+  .legal-meta { font-size: 12px; letter-spacing: 1px; color: var(--muted); margin: 0 0 30px; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; padding-bottom: 80px; }
+  .legal-toc { position: sticky; top: 24px; font-size: 12px; }
+  .legal-toc strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 10px; }
+  .legal-toc a { display: block; padding: 6px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+  .legal-toc a:hover { color: var(--ink); }
+  .legal-body h2 { font-size: 24px; letter-spacing: -.6px; margin: 40px 0 10px; }
+  .legal-body section:first-child h2 { margin-top: 0; }
+  .legal-body p, .legal-body li { max-width: 68ch; font-size: 15.5px; line-height: 1.7; }
+  .legal-body ul { padding-left: 22px; }
+  .plain { border-left: 3px solid #718341; background: #f2f5e8; padding: 12px 16px; margin: 0 0 18px; max-width: 68ch; font-size: 15px; border-radius: 0 6px 6px 0; }
+  .plain strong { display: block; font-size: 10px; letter-spacing: 2px; color: #718341; margin-bottom: 4px; }
+  .legal-body code { font-family: Consolas, monospace; font-size: .92em; background: #eef0e7; padding: 1px 5px; border-radius: 3px; }
+  .legal-body table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .legal-body th, .legal-body td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .legal-body th { font-size: 10px; letter-spacing: 1.5px; color: var(--muted); }
+  .legal-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 12px; }
+  @media (max-width: 860px) { .legal-layout { grid-template-columns: 1fr; gap: 20px; } .legal-toc { position: static; } }
+</style>
+<title>ServiceTitan Pricebook Import Checklist | StockStart</title>
+<meta name="description" content="ServiceTitan pricebook import checklist: start from your own export, keep IDs and columns, check units, costs and duplicates, and import in batches you can verify.">
+<link rel="canonical" href="https://getstockstart.com/servicetitan-pricebook-import-checklist.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="StockStart"><meta property="og:title" content="ServiceTitan Pricebook Import Checklist"><meta property="og:description" content="ServiceTitan pricebook import checklist: start from your own export, keep IDs and columns, check units, costs and duplicates, and import in batches you can verify."><meta property="og:url" content="https://getstockstart.com/servicetitan-pricebook-import-checklist.html"><meta name="twitter:card" content="summary">
+
+<style>
+  .g{max-width:860px;margin:0 auto;padding:40px 20px 80px;line-height:1.6}
+  .g h1{font-size:38px;line-height:1.1;margin:8px 0 14px}.g h2{font-size:24px;margin:40px 0 10px}.g h3{font-size:18px;margin:26px 0 6px}
+  .g p,.g li{max-width:720px}.g ul,.g ol{padding-left:22px}.g li{margin-bottom:7px}
+  .g .lede{font-size:18px;opacity:.85;max-width:720px}
+  .g .toc{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;margin:10px 0 0;letter-spacing:.02em}.g .toc a{text-decoration:none;opacity:.8}.g .toc a:hover{opacity:1;text-decoration:underline}
+  .g .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0 6px}
+  .g .cards div{border:1px solid rgba(0,0,0,.15);border-radius:8px;padding:14px 16px;background:rgba(255,255,255,.55)}
+  .g .cards .k{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}.g .cards .v{margin-top:6px;font-size:15px}
+  .g table{width:100%;border-collapse:collapse;font-size:15px;margin:12px 0 6px;background:rgba(255,255,255,.55)}
+  .g th,.g td{text-align:left;padding:9px 11px;border-bottom:1px solid rgba(0,0,0,.15);vertical-align:top}.g th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;opacity:.75;font-weight:600}
+  .g .check{list-style:none;padding:0;max-width:720px}.g .check li{display:grid;grid-template-columns:24px 1fr;gap:8px;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,.18)}.g .check li::before{content:"";width:15px;height:15px;border:1.5px solid currentColor;border-radius:3px;margin-top:5px;opacity:.7}
+  .g .note{border-left:3px solid currentColor;padding:10px 14px;margin:14px 0;max-width:720px;background:rgba(0,0,0,.04);font-size:15px}
+  .g .caution{background:rgba(160,40,40,.07);border-left-color:#7a2626}
+  .g .cta{border:1px solid rgba(0,0,0,.15);border-radius:10px;padding:24px 26px;margin-top:36px;background:rgba(255,255,255,.6)}
+  .g .cta h2{margin-top:0}.g .cta .btn{display:inline-block;padding:11px 20px;border-radius:6px;background:#173e32;color:#fff !important;text-decoration:none;font-weight:600;margin-top:8px}
+  @media print{header,footer,.g .cta,.g .toc{display:none}.g{padding:0}}
+</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "HowTo", "name": "ServiceTitan Pricebook Import Checklist", "description": "ServiceTitan pricebook import checklist: start from your own export, keep IDs and columns, check units, costs and duplicates, and import in batches you can verify.", "step": [{"@type": "HowToStep", "name": "Start from your own export", "text": "Patch changes into the workbook ServiceTitan gave you so IDs, columns and categories are exactly what it expects."}, {"@type": "HowToStep", "name": "Check units and costs", "text": "Convert box/case/roll to the pricebook unit before comparing or writing a cost."}, {"@type": "HowToStep", "name": "Check for duplicates", "text": "Match on part number and unit; description-only matches are proposals to review."}, {"@type": "HowToStep", "name": "Import a small batch first", "text": "Verify a few items in the pricebook, then import the rest."}, {"@type": "HowToStep", "name": "Keep both files", "text": "The export you started from and the update you imported, per run."}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does a pricebook import fail?", "acceptedAnswer": {"@type": "Answer", "text": "Usually a changed or missing column, an item ID that no longer matches, a unit or cost that fails validation, or a category that doesn't exist — all avoided by patching into your own export."}}, {"@type": "Question", "name": "Should I build the import file from scratch?", "acceptedAnswer": {"@type": "Answer", "text": "No. Start from ServiceTitan's own export so the structure is right; change only the cells you mean to change."}}, {"@type": "Question", "name": "How often should I import pricebook updates?", "acceptedAnswer": {"@type": "Answer", "text": "As often as invoices arrive — weekly for most shops — so each batch is small and easy to verify."}}]}]</script>
+  <link rel="apple-touch-icon" href="/icon-512.png">
+</head>
+<body><div id="ppg-home-strip" style="background:#173f2c;color:#fff;font:600 15px/1.4 system-ui,-apple-system,Segoe UI,sans-serif;padding:10px 16px;text-align:center;display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;align-items:center"><span>Free 30-day trial. No card, no automatic charge.</span><a href="https://app.getstockstart.com/signup?utm_source=home&utm_medium=strip" style="background:#fff;color:#173f2c;padding:7px 14px;border-radius:6px;text-decoration:none;font-weight:700">Start free trial</a><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&amp;cid=ss-strip-servicetitan-pricebook-import-" style="color:#fff;text-decoration:underline;text-underline-offset:3px">or get it from the Microsoft Store</a></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header wrap">
+    <a class="brand" href="./" aria-label="StockStart home"><img src="./mark.svg" width="38" height="38" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a>
+    <nav aria-label="Main navigation"><a href="./#product">The product</a><a href="./#how-it-works">How it works</a><a href="./#pricing">Pricing</a><a href="./#questions">Questions</a></nav>
+    <a class="button small dark" href="https://app.getstockstart.com/signup">Start free trial <span aria-hidden="true">↗</span></a>
+  </header>
+  
+<main class="g" id="main">
+  <p class="eyebrow"><span class="dot"></span> STOCKSTART · GUIDE</p>
+  <h1>ServiceTitan pricebook import checklist</h1>
+  <p class="lede">An import that fails wastes ten minutes. An import that succeeds with the wrong units costs a month of mis-quoted jobs. Here is what to check before the file goes in — and how to make each run small enough to verify.</p>
+  <nav class="toc" aria-label="On this page"><a href="#structure">Structure</a><a href="#values">Values</a><a href="#dupes">Duplicates</a><a href="#batches">Batches and verification</a><a href="#checklist">Checklist</a></nav>
+
+  <h2 id="structure">Structure: start from your own export</h2>
+  <ul>
+    <li><b>Export first, then edit.</b> ServiceTitan's pricebook export has the exact column names, item IDs, codes and categories it will accept back. Patch your changes into that workbook. Never build an import file from a blank sheet.</li>
+    <li><b>Keep the IDs.</b> An existing item keeps its ID and code; that is how an update lands on the right item instead of creating a twin.</li>
+    <li><b>Don't rename or reorder columns.</b> A renamed header is a silent skip or a hard failure.</li>
+    <li><b>Categories must already exist.</b> A new category is a separate step; an item pointing at a category that isn't there fails.</li>
+  </ul>
+
+  <h2 id="values">Values: units, costs, descriptions</h2>
+  <table>
+    <thead><tr><th>Field</th><th>Check</th><th>Typical mistake</th></tr></thead>
+    <tbody>
+      <tr><td>Unit of measure</td><td>The pricebook's unit (each, ft, lb), converted from the invoice's (box of 25, roll of 100)</td><td>Cost per box written as cost per each → 25× off</td></tr>
+      <tr><td>Cost</td><td>Numeric, two decimals, no currency symbol or thousands separator</td><td>"$1,299.00" as text</td></tr>
+      <tr><td>Description</td><td>One naming convention; the existing item's wording wins</td><td>Three spellings of the same fitting</td></tr>
+      <tr><td>Part numbers</td><td>Vendor part number and manufacturer part number in their own fields, exactly as printed</td><td>Vendor number typed into the manufacturer field</td></tr>
+      <tr><td>Active flag</td><td>Deliberate: retiring an item is a decision, not a side effect</td><td>Bulk import flips items inactive</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="dupes">Duplicates: the thing imports create most</h2>
+  <p>Before any line is added as new, match it against the export by <b>part number + unit</b>. A match is an update. A description-only match is a <i>proposal</i> for a person to confirm. Only a line that matches nothing becomes a new item — and even then, look for near-duplicates ("3/4 CU 90" vs "Copper elbow 3/4") once, so you don't create the twin you were trying to avoid. Also check the batch against itself: the same invoice received by email and from the portal is the same invoice.</p>
+
+  <h2 id="batches">Batches and verification</h2>
+  <ol>
+    <li>Import a batch of 10–20 changes the first time.</li>
+    <li>Open three of them in the pricebook: unit, cost, category, active flag.</li>
+    <li>Import the rest.</li>
+    <li>Keep the export you started from and the update you imported, together, per run — that is the answer to "when did this cost change and why".</li>
+    <li>Next run starts from a fresh export, which already contains what you approved.</li>
+  </ol>
+  <div class="note">Nothing should write to your ServiceTitan tenant automatically. A file you reviewed and imported yourself is safer than an integration you cannot see, and it leaves a trail.</div>
+
+  <h2 id="checklist">Pre-flight checklist</h2>
+  <ul class="check">
+    <li>File is the current ServiceTitan export with changes patched in — not a new sheet.</li>
+    <li>Column headers untouched; item IDs and codes preserved on existing items.</li>
+    <li>Every category referenced already exists.</li>
+    <li>Units converted to the pricebook unit; costs numeric.</li>
+    <li>Part numbers in the right fields, exactly as printed.</li>
+    <li>New items checked for near-duplicates; batch checked against itself.</li>
+    <li>Active flags deliberate.</li>
+    <li>Small batch first, three items verified, then the rest.</li>
+    <li>Export + update kept for the run.</li>
+  </ul>
+  <p><a href="servicetitan-pricebook-import-preflight.pdf" download>Download this checklist as a one-page PDF ↓</a></p>
+
+  <p><a href="pricebook-unit-cost-checker.html">Check a few lines now with the free unit-cost checker.</a></p>
+  <p>Related guides: <a href="vendor-invoice-pricebook-matching.html">matching supplier invoice lines to pricebook items</a>, <a href="supplier-invoice-pdf-to-pricebook.html">turning supplier invoice PDFs into pricebook updates</a> and <a href="servicetitan-pricebook-manual-update.html">updating a ServiceTitan pricebook by hand</a>.</p>
+  <div class="cta">
+    <p class="eyebrow"><span class="dot"></span> THE CHECKLIST, EVERY WEEK, AUTOMATICALLY</p>
+    <h2>StockStart produces the import file this way by design.</h2>
+    <p>It reads each invoice against your ServiceTitan export, matches by part number and unit, proposes new items, converts units, catches duplicates, and holds anything uncertain for review. Approved new items are added as new rows to the Materials sheet of your own export, with headers and other columns left as they are, ready to import. For items already in that sheet, StockStart updates the Cost to the invoice cost and shows each old and new cost. The item library CSV also lists each current invoice cost (LatestCost column). $129.00/month, 30-day no-card trial; no automatic charge, unlimited invoices.</p>
+    <a class="btn" href="https://app.getstockstart.com/signup">Start your free trial ↗</a> &nbsp; <a href="./servicetitan-pricebook-vendor-invoices.html">Read the weekly routine</a>
+  </div>
+<aside class="ms-store-cta" style="margin:40px 0 8px;padding:20px 22px;border:1px solid rgba(127,127,127,.35);border-radius:10px;display:flex;flex-wrap:wrap;gap:16px;align-items:center"><a href="https://apps.microsoft.com/detail/9PK7HXBCMQW8?mode=direct&cid=ss-servicetitan-pricebook-import-checklist" rel="noopener"><img src="https://get.microsoft.com/images/en-us%20dark.svg" width="180" alt="Get StockStart from the Microsoft Store"></a><p style="margin:0;flex:1 1 260px">StockStart is in the Microsoft Store. Microsoft checks and signs Store apps, so Windows installs it without an unknown-publisher warning.</p></aside></main>
+
+  <footer class="wrap">
+    <div class="footer-top"><a class="brand" href="./"><img src="./mark.svg" width="32" height="32" alt=""><span>StockStart<small>BY PROFITPIN</small></span></a><p>Practical software. A clearer way forward.</p><div class="legal-links"><a href="./terms.html">Terms</a><a href="./privacy.html">Privacy</a><a href="./refunds.html">Refunds &amp; cancellation</a><a href="./licenses.html">Third-party notices</a><a href="mailto:support@getstockstart.com">Contact</a></div></div>
+    <div class="footer-bottom"><span>© 2026 Profitpin LLC. StockStart.</span><span>ServiceTitan is a trademark of its respective owner. StockStart is independent software and is not affiliated with, endorsed by, or certified by ServiceTitan. It prepares reviewed data; it does not write to your ServiceTitan account.</span></div>
+  </footer>
+<script src="/lead-source.js" defer></script></body>
+</html>
